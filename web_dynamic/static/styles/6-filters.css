@@ -106,12 +106,3 @@ button:hover {
 .locations:hover .popover {
     visibility: visible;
 }
-
-/* .amenities h4 {
-    width: 100%;
-    height: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding-bottom: 16px;
-} */
