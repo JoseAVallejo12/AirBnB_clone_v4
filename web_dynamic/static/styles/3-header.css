@@ -19,3 +19,7 @@ header .logo {
     border-radius: 50%;
     background-color: #CCCCCC;
 }
+
+#api_status.available {
+    background-color: #ff545f;
+}
