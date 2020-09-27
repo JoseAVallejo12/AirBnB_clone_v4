@@ -19,7 +19,7 @@
       <section class="filters">
     <div class="locations">
       <h3>States</h3>
-      <h4>&nbsp;</h4>
+      <h4 >&nbsp;</h4>
       <div class="popover">
         <ul>
           {% for state in states %}
@@ -37,13 +37,13 @@
     </div>
     <div class="amenities">
       <h3>Amenities</h3>
-      <h4>&nbsp;</h4>
+      <h4 id="select">&nbsp;</h4>
       <div class="popover">
         <ul>
           {% for amenity in amenities %}
             <li>
-              <input type="checkbox" data-id=":amenity_id" data-name=":amenity_name" size="10">
-              <label for=":amenity_name">{{ amenity.name }}</label>
+              <input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}" size="10">
+              <label for="{{ amenity.name }}"></label>{{ amenity.name }}</label>
             </li>
           {% endfor %}
         </ul>
@@ -78,6 +78,6 @@
     <footer>
       <p>Holberton School</p>
     </footer>
-    <script href="static/scripts/1-hbnb.js"></script>
+    <script src="static/scripts/1-hbnb.js"></script>
   </body>
 </html>

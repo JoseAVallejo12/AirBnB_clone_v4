@@ -1,9 +1,15 @@
+let amenitiesList = []
+$('input[type=checkbox]').prop('checked', false);
+
 $('input[type="checkbox"]').click(function(){
     if($(this).prop("checked") == true){
-        console.log("Checkbox is checked.");
-    }
-    else if($(this).prop("checked") == false){
-        console.log("Checkbox is unchecked.");
-    }
-});
+        amenitiesList.push($(this).attr('data-name'))
+        $("#select").text(amenitiesList)
 
+
+    } else if($(this).prop("checked") == false){
+        amenitiesList.pop()
+        $("#select").text(amenitiesList)
+
+   }
+});
