@@ -1,6 +1,6 @@
 $(function(){
   let amenitiesList = [];
-
+  $('input[type=checkbox]').prop('checked', false);
   $('.amenities h4').css({
     "width": "100%",
     "height": "100%",
