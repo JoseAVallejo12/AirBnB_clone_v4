@@ -57,3 +57,8 @@ $(function () {
     }
   });
 });
+
+$("button, input[type='button']").on('click', function (e) {
+  console.log('hola');
+  console.log('holas');
+});
