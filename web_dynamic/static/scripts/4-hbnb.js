@@ -90,7 +90,3 @@ $(function () {
     });
   });
 }); */
-$(document).ready(function () {
-  const obj = $('.places').children();
-  console.log(obj);
-});
