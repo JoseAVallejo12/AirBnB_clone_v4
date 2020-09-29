@@ -58,31 +58,6 @@ $(function () {
   });
 });
 
-$(document).ready(() => {
-  $('button').bind('click', function () {
-    $('section.places').remove();
-    $.ajax({
-      type: 'POST',
-      url: 'http://localhost:5001/api/v1/places_search/',
-      contentType: 'application/json',
-      data: '{}',
-      dataType: 'json',
-      success: function (response) {
-        response.forEach((place) => {
-          $.get(`http://localhost:5001/api/v1/places/${place.id}/amenities`, (data) => {
-            data.forEach((amenity) => {
-              if (e === amenity.name){
-                $('section.places').filter('article.title_box').has(`h2:contains(${amenity.name})`).css('display', 'none');}     
-                });
-              });
-            });
-          });
-        });
-      }
-    });
-  });
-});
-
 /* ESTABLE */
 /* $(document).ready(() => {
   $('button').bind('click', function () {
