@@ -59,7 +59,7 @@ $(function () {
 });
 
 /* ESTABLE */
-/* $(document).ready(() => {
+$(document).ready(() => {
   $('button').bind('click', function () {
     $.ajax({
       type: 'POST',
@@ -89,4 +89,4 @@ $(function () {
       }
     });
   });
-}); */
+});
