@@ -1,5 +1,5 @@
+const amenitiesList = [];
 $(function () {
-  const amenitiesList = [];
   $('input[type=checkbox]').prop('checked', false);
 
   $('.amenities h4').css({
@@ -39,7 +39,7 @@ $(document).ready(function () {
 $(function () {
   $.ajax({
     type: 'POST',
-    url: 'http://0.0.0.0:5001/api/v1/places_search/',
+    url: 'http://localhost:5001/api/v1/places_search/',
     contentType: 'application/json',
     data: '{}',
     dataType: 'json',
@@ -58,7 +58,64 @@ $(function () {
   });
 });
 
-$("button, input[type='button']").on('click', function (e) {
-  console.log('hola');
-  console.log('holas');
+$(document).ready(() => {
+  $('button').bind('click', function () {
+    $('section.places').remove();
+    $.ajax({
+      type: 'POST',
+      url: 'http://localhost:5001/api/v1/places_search/',
+      contentType: 'application/json',
+      data: '{}',
+      dataType: 'json',
+      success: function (response) {
+        response.forEach((place) => {
+          $.get(`http://localhost:5001/api/v1/places/${place.id}/amenities`, (data) => {
+            data.forEach((amenity) => {
+              if (e === amenity.name){
+                $('section.places').filter('article.title_box').has(`h2:contains(${amenity.name})`).css('display', 'none');}     
+                });
+              });
+            });
+          });
+        });
+      }
+    });
+  });
+});
+
+/* ESTABLE */
+/* $(document).ready(() => {
+  $('button').bind('click', function () {
+    $.ajax({
+      type: 'POST',
+      url: 'http://localhost:5001/api/v1/places_search/',
+      contentType: 'application/json',
+      data: '{}',
+      dataType: 'json',
+      success: function (response) {
+        response.forEach((place) => {
+          $.get(`http://localhost:5001/api/v1/places/${place.id}/amenities`, (data) => {
+            data.forEach((amenity) => {
+              amenitiesList.forEach((e) => {
+                if (e === amenity.name) {
+                  $('section.places').append('<article><div class="title_box"><h2>' +
+                  place.name + '</h2><div class="price_by_night">$' +
+                  place.price_by_night +
+                  '</div></div><div class="information"><div class="max_guest">' +
+                  place.max_guest + '</div><div class="number_rooms">' +
+                  place.number_rooms + '</div><div class="number_bathrooms">' +
+                  place.number_bathrooms +
+                  '</div></div><div class="description">' + place.description + '</div></article>');
+                }
+              });
+            });
+          });
+        });
+      }
+    });
+  });
+}); */
+$(document).ready(function () {
+  const obj = $('.places').children();
+  console.log(obj);
 });
